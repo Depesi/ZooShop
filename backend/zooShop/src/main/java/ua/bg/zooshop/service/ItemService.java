@@ -18,7 +18,7 @@ public class ItemService {
     @Autowired
     IItemRepository  repository;
 
-    @PostConstruct
+//    @PostConstruct
     public void init(){
         repository.save(item);
     }

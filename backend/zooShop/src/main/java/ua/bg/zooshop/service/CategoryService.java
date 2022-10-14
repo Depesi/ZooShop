@@ -12,7 +12,7 @@ public class CategoryService {
     @Autowired
     ICategoryRepository repository;
 
-    @PostConstruct
+//    @PostConstruct
     public void init(){
         repository.save(category);
     }
