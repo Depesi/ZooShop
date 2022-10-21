@@ -1,5 +1,6 @@
 package ua.bg.zooshop.entity;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,8 +10,11 @@ import java.util.List;
 public class Basket {
     @Id
     private int id;
+    @Schema(description = "Link to User who own that basket")
     private User user;
+    @Schema(description = "List of Items in basket")
     private List<Item> itemList;
+    @Schema(description = "The final price that will be automatically calculated")
     private int totalPrice;
 
     public Basket() {
