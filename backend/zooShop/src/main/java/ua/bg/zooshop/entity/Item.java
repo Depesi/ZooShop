@@ -1,5 +1,6 @@
 package ua.bg.zooshop.entity;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
@@ -15,6 +16,7 @@ public class Item {
     private String name;
     private int price;
     private int quantity;
+    @Schema(description = "Name for animal(all categories)")
     private String nameForAnimal;
     private List<Category> idCategory;
     private String description;
