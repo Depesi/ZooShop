@@ -33,7 +33,7 @@ public class ItemController {
     public Item getById(@PathVariable(value = "id") Integer id) {
         return service.getById(id);
     }
-    @GetMapping(value = "/find/{name}")
+    @GetMapping(value = "/findByName/{name}")
     public Item getfindByName(@PathVariable(value = "name") String name){return service.getFindByName(name);}
 
     @PostMapping("/")
