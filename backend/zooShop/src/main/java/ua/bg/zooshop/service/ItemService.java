@@ -45,7 +45,11 @@ public class ItemService {
         return repository.findAll();
     }
 
-    public Item getById(int id) {
+    public Item getById(Integer id) {
         return repository.findById(id).orElseThrow(() -> new RuntimeException("Not Found ID"));
+    }
+
+    public Item getFindByName(String name){
+        return repository.findItemByName(name);
     }
 }
