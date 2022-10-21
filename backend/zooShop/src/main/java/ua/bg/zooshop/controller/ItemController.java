@@ -28,9 +28,11 @@ public class ItemController {
 
     @ApiOperation(value = "Get one Item by id")
     @GetMapping("/{id}")
-    public Item getById(@PathVariable(value = "id") int id) {
+    public Item getById(@PathVariable(value = "id") Integer id) {
         return service.getById(id);
     }
+    @GetMapping(value = "/find/{name}")
+    public Item getfindByName(@PathVariable(value = "name") String name){return service.getFindByName(name);}
 
     @ApiOperation(value = "Method that creates Items")
     @PostMapping("/")
