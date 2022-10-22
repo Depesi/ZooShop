@@ -17,11 +17,8 @@ public class ItemController {
     @Autowired
     ItemService service;
 
-    @ApiOperation(value = "Get all Items", notes = "View all Item")
+    @ApiOperation(value = "Get List with all Items")
     @ApiResponses({
-            @ApiResponse(code = 200, message = "Champion"),
-            @ApiResponse(code = 403, message = "Access is closed"),
-            @ApiResponse(code = 404, message = "Not found"),
             @ApiResponse(code = 500, message = "Internal server error")
     })
     @GetMapping("/")
@@ -29,21 +26,25 @@ public class ItemController {
         return service.getAll();
     }
 
+    @ApiOperation(value = "Get one Item by id")
     @GetMapping("/{id}")
     public Item getById(@PathVariable(value = "id") int id) {
         return service.getById(id);
     }
 
+    @ApiOperation(value = "Method that creates Items")
     @PostMapping("/")
     public Item create(@RequestBody Item item) {
         return service.create(item);
     }
 
+    @ApiOperation(value = "Method that updates Items")
     @PutMapping("/")
     public Item update(@RequestBody Item item) {
         return service.update(item);
     }
 
+    @ApiOperation(value = "Method that removes Items by id")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable(value = "id")int id){
         service.delete(id);
