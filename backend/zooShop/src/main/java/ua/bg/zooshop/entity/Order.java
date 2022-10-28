@@ -1,5 +1,6 @@
 package ua.bg.zooshop.entity;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -7,7 +8,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Order {
     @Id
     private int id;
+    @Schema(description = "Link to basket")
     private Basket basket;
+
     private boolean status;
 
     public Order() {
