@@ -1,5 +1,6 @@
 package ua.bg.zooshop.entity;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -15,6 +16,7 @@ public class User {
     private String lastName;
     private String surrName;
     private String email;
+    @Schema(description = "Discount for this user")
     private int discount;
     private Role role;
 

@@ -16,11 +16,14 @@ public class Item {
     private String name;
     private int price;
     private int quantity;
-    @Schema(description = "Name for animal(all categories)")
+    @Schema(description = "The field is used to relate the 'Item' to the animal")
     private String nameForAnimal;
+    @Schema(description = "The field indicates the id of the Category")
     private List<Category> idCategory;
     private String description;
+    @Schema(description = "Should contain a picture")
     private int image;
+    @Schema(description = "Number of such items available")
     private int size;
 
     public Item(int id, String name, int price, int quantity, String nameForAnimal, List<Category> idCategory,
