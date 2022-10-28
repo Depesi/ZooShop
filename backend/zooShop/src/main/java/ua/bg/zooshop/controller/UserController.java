@@ -4,8 +4,10 @@ import io.swagger.annotations.ApiOperation;
 import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import ua.bg.zooshop.DTO.LoginRequest;
+import ua.bg.zooshop.DTO.LoginResponse;
 import ua.bg.zooshop.DTO.SignUpRequest;
 import ua.bg.zooshop.entity.User;
 import ua.bg.zooshop.security.AuthService;
@@ -25,6 +27,7 @@ public class UserController {
 
     @ApiOperation(value = "Get List with all Users")
     @GetMapping("/")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public List<User> getAll() {
         return service.getAll();
     }

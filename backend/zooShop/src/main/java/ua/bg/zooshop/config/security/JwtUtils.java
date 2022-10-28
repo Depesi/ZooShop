@@ -1,9 +1,9 @@
 package ua.bg.zooshop.config.security;
 
 
+import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import io.jsonwebtoken.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 import ua.bg.zooshop.security.UserDetailsImpl;
