@@ -3,9 +3,11 @@ package ua.bg.zooshop;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import ua.bg.zooshop.config.SwaggerConfig;
 
 @SpringBootApplication
+
 @Import({SwaggerConfig.class})
 public class ZooShopApplication {
 

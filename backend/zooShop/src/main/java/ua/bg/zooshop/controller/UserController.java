@@ -1,9 +1,14 @@
 package ua.bg.zooshop.controller;
 
 import io.swagger.annotations.ApiOperation;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ua.bg.zooshop.DTO.LoginRequest;
+import ua.bg.zooshop.DTO.SignUpRequest;
 import ua.bg.zooshop.entity.User;
+import ua.bg.zooshop.security.AuthService;
 import ua.bg.zooshop.service.UserService;
 
 import java.util.List;
@@ -14,6 +19,9 @@ public class UserController {
 
     @Autowired
     UserService service;
+
+    @Autowired
+    AuthService authService;
 
     @ApiOperation(value = "Get List with all Users")
     @GetMapping("/")
@@ -43,5 +51,15 @@ public class UserController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable(value = "id")String id){
         service.delete(id);
+    }
+
+    @PostMapping("/signIn")
+    public ResponseEntity<?> authenticate(@RequestBody LoginRequest request) {
+        return ResponseEntity.ok(authService.authenticateRequest(request));
+    }
+
+    @PostMapping("/signUp")
+    public ResponseEntity<?> createUser(@RequestBody SignUpRequest request) {
+        return ResponseEntity.ok(authService.signUpUser(request));
     }
 }
