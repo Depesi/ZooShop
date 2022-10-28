@@ -12,6 +12,7 @@ public class Basket {
     @Id
     private String id;
     @Schema(description = "Link to User who own that basket")
+    @DBRef
     private User user;
     @Schema(description = "List of Items in basket")
     @DBRef
