@@ -10,10 +10,14 @@ public class Order {
     private int id;
     @Schema(description = "Link to basket")
     private Basket basket;
-
     private boolean status;
 
     public Order() {
+    }
+    public Order(Order order) {
+        id = order.id;
+        basket = order.basket;
+        status = order.status;
     }
 
     public Order(int id, Basket basket, boolean status) {

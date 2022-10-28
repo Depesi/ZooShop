@@ -19,6 +19,12 @@ public class Basket {
 
     public Basket() {
     }
+    public Basket(Basket basket) {
+        id = basket.id;
+        user = basket.user;
+        itemList = basket.itemList;
+        totalPrice = basket.totalPrice;
+    }
 
     public Basket(int id, User user, List<Item> itemList, int totalPrice) {
         this.id = id;

@@ -28,6 +28,10 @@ public class Role {
 
     public Role() {
     }
+    public Role(Role role) {
+        id = role.id;
+        name = role.name;
+    }
 
     public int getId() {
         return id;

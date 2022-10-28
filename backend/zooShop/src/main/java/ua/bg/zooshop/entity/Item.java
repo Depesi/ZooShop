@@ -53,6 +53,17 @@ public class Item {
 
     public Item() {
     }
+    public Item(Item item) {
+        id = item.id;
+        name = item.name;
+        price = item.price;
+        quantity = item.quantity;
+        nameForAnimal = item.nameForAnimal;
+        idCategory = item.idCategory;
+        description = item.description;
+        image = item.image;
+        size = item.size;
+    }
 
     public int getId() {
         return id;

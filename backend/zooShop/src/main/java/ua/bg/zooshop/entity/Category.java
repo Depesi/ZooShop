@@ -22,6 +22,10 @@ public class Category {
 
     public Category() {
     }
+    public Category(Category category) {
+        id = category.id;
+        name = category.name;
+    }
 
     public int getId() {
         return id;

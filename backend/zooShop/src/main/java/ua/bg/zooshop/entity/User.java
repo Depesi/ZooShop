@@ -50,6 +50,19 @@ public class User {
     public User() {
     }
 
+    public User(User newUser) {
+        id = newUser.id;
+        username = newUser.username;
+        password = newUser.password;
+        phone = newUser.phone;
+        firstName = newUser.firstName;
+        lastName = newUser.lastName;
+        surrName = newUser.surrName;
+        email = newUser.email;
+        discount = newUser.discount;
+        role = newUser.role;
+    }
+
     public int getId() {
         return id;
     }
