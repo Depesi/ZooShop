@@ -7,7 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 enum Role {
     USER,
     ADMIN,
-    CUSTOMER
+    CUSTOMER,
+    OPERATOR
 }
 @Document
 public class User {
