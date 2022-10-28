@@ -26,9 +26,9 @@ public class OrderService {
     }
 
     public Order update(Order orderCreate) {
-        Order updateOrder = getById(orderCreate.getId());
-        repository.save(updateOrder);
-        return updateOrder;
+        getById(orderCreate.getId());
+        repository.save(orderCreate);
+        return orderCreate;
     }
 
     public void delete(int id) {

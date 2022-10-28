@@ -25,9 +25,9 @@ public class RoleService {
     }
 
     public Role update(Role roleCreate) {
-        Role updateRole = getById(roleCreate.getId());
-        repository.save(updateRole);
-        return updateRole;
+        getById(roleCreate.getId());
+        repository.save(roleCreate);
+        return roleCreate;
     }
 
     public void delete(int id){

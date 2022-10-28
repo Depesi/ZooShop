@@ -26,9 +26,9 @@ public class CategoryService {
     }
 
     public Category update(Category categoryCreate) {
-        Category updateCategory = getById(categoryCreate.getId());
-        repository.save(updateCategory);
-        return updateCategory;
+        getById(categoryCreate.getId());
+        repository.save(categoryCreate);
+        return categoryCreate;
     }
 
     public void delete(int id){

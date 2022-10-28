@@ -24,22 +24,15 @@ public class UserService {
     }
 
     public User update(User userCreate) {
-        User userItem = getById(userCreate.getId());
-        boolean isOldPassword = encoderPassword.EqualsPassword(userItem.getPassword(),userCreate.getPassword());
+        getById(userCreate.getId());
+
+        boolean isOldPassword = encoderPassword.EqualsPassword(userCreate.getPassword(),userCreate.getPassword());
         if(isOldPassword){
-            userItem.setPassword(encoderPassword.EncodingPassword(userCreate.getPassword()));
+            userCreate.setPassword(encoderPassword.EncodingPassword(userCreate.getPassword()));
         }
-        userItem.setDiscount(userCreate.getDiscount());
-        userItem.setId(userCreate.getId());
-        userItem.setEmail(userCreate.getEmail());
-        userItem.setFirstName(userCreate.getFirstName());
-        userItem.setLastName(userCreate.getLastName());
-        userItem.setPhone(userCreate.getPhone());
-        userItem.setSurrName(userCreate.getSurrName());
-        userItem.setUsername(userCreate.getUsername());
-        userItem.setRole(userCreate.getRole());
-        repository.save(userItem);
-        return userItem;
+
+        repository.save(userCreate);
+        return userCreate;
     }
 
     public void delete(int id){

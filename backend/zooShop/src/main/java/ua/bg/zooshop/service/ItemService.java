@@ -32,9 +32,9 @@ public class ItemService {
     }
 
     public Item update(Item itemCreate) {
-        Item updateItem = getById(itemCreate.getId());
-        repository.save(updateItem);
-        return updateItem;
+        getById(itemCreate.getId());
+        repository.save(itemCreate);
+        return itemCreate;
     }
 
     public void delete(int id){

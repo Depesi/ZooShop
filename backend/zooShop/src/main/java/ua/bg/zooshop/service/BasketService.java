@@ -25,9 +25,9 @@ public class BasketService {
     }
 
     public Basket update(Basket basketCreate) {
-        Basket updateBasket = getById(basketCreate.getId());
-        repository.save(updateBasket);
-        return updateBasket;
+        getById(basketCreate.getId());
+        repository.save(basketCreate);
+        return basketCreate;
     }
 
     public void delete(int id){
