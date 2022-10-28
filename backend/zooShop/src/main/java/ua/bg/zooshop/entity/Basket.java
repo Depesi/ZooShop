@@ -9,7 +9,7 @@ import java.util.List;
 @Document
 public class Basket {
     @Id
-    private int id;
+    private String id;
     @Schema(description = "Link to User who own that basket")
     private User user;
     @Schema(description = "List of Items in basket")
@@ -26,7 +26,7 @@ public class Basket {
         totalPrice = basket.totalPrice;
     }
 
-    public Basket(int id, User user, List<Item> itemList, int totalPrice) {
+    public Basket(String id, User user, List<Item> itemList, int totalPrice) {
         this.id = id;
         this.user = user;
         this.itemList = itemList;
@@ -39,11 +39,11 @@ public class Basket {
         this.totalPrice = totalPrice;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

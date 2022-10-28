@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ua.bg.zooshop.entity.Category;
 
 @Repository
-public interface ICategoryRepository extends MongoRepository<Category,Integer> {
+public interface ICategoryRepository extends MongoRepository<Category, String> {
 }

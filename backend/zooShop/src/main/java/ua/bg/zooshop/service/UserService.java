@@ -35,7 +35,7 @@ public class UserService {
         return userCreate;
     }
 
-    public void delete(int id){
+    public void delete(String id){
         repository.deleteById(id);
     }
 
@@ -43,7 +43,7 @@ public class UserService {
         return repository.findAll();
     }
 
-    public User getById(int id) {
+    public User getById(String id) {
         return repository.findById(id).orElseThrow(() -> new RuntimeException("Not Found ID"));
     }
 }

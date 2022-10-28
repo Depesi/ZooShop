@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ua.bg.zooshop.entity.Basket;
 
 @Repository
-public interface IBasketRepository extends MongoRepository<Basket,Integer> {
+public interface IBasketRepository extends MongoRepository<Basket, String> {
 }

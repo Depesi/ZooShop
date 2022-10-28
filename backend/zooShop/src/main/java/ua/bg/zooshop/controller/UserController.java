@@ -23,7 +23,7 @@ public class UserController {
 
     @ApiOperation(value = "Get one Item by id")
     @GetMapping("/{id}")
-    public User getById(@PathVariable(value = "id") int id) {
+    public User getById(@PathVariable(value = "id") String id) {
         return service.getById(id);
     }
 
@@ -41,7 +41,7 @@ public class UserController {
 
     @ApiOperation(value = "Method that removes Users by id")
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable(value = "id")int id){
+    public void delete(@PathVariable(value = "id")String id){
         service.delete(id);
     }
 }

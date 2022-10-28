@@ -31,7 +31,7 @@ public class OrderService {
         return orderCreate;
     }
 
-    public void delete(int id) {
+    public void delete(String id) {
         repository.deleteById(id);
     }
 
@@ -39,7 +39,7 @@ public class OrderService {
         return repository.findAll();
     }
 
-    public Order getById(int id) {
+    public Order getById(String id) {
         return repository.findById(id).orElseThrow(() -> new RuntimeException("Not Found ID"));
     }
 }

@@ -30,7 +30,7 @@ public class BasketService {
         return basketCreate;
     }
 
-    public void delete(int id){
+    public void delete(String id){
         repository.deleteById(id);
     }
 
@@ -38,7 +38,7 @@ public class BasketService {
         return repository.findAll();
     }
 
-    public Basket getById(int id) {
+    public Basket getById(String id) {
         return repository.findById(id).orElseThrow(() -> new RuntimeException("Not Found ID"));
     }
 }

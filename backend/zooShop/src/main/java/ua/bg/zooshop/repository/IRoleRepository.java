@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ua.bg.zooshop.entity.Role;
 
 @Repository
-public interface IRoleRepository extends MongoRepository<Role,Integer> {
+public interface IRoleRepository extends MongoRepository<Role, String> {
 }

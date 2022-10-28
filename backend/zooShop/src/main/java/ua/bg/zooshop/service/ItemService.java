@@ -15,14 +15,13 @@ import java.util.List;
 @Service
 public class ItemService {
 
-    Item item = new Item(1,"test",123,321,"Test", Arrays.asList(new Category(0,"test")),
-            "sadads",1010,12);
+    Item item = new Item();
 
     @Autowired
-    IItemRepository  repository;
+    IItemRepository repository;
 
-//    @PostConstruct
-    public void init(){
+    //    @PostConstruct
+    public void init() {
         repository.save(item);
     }
 
@@ -37,7 +36,7 @@ public class ItemService {
         return itemCreate;
     }
 
-    public void delete(int id){
+    public void delete(String id) {
         repository.deleteById(id);
     }
 
@@ -45,11 +44,11 @@ public class ItemService {
         return repository.findAll();
     }
 
-    public Item getById(Integer id) {
+    public Item getById(String id) {
         return repository.findById(id).orElseThrow(() -> new RuntimeException("Not Found ID"));
     }
 
-    public Item getFindByName(String name){
+    public Item getFindByName(String name) {
         return repository.findItemByName(name);
     }
 }

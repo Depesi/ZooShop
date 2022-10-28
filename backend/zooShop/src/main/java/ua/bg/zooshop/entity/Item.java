@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 public class Item {
     @Id
-    private int id;
+    private String id;
     private String name;
     private int price;
     private int quantity;
@@ -26,7 +26,7 @@ public class Item {
     @Schema(description = "Number of such items available")
     private int size;
 
-    public Item(int id, String name, int price, int quantity, String nameForAnimal, List<Category> idCategory,
+    public Item(String id, String name, int price, int quantity, String nameForAnimal, List<Category> idCategory,
                 String description, int image, int size) {
         this.id = id;
         this.name = name;
@@ -65,11 +65,11 @@ public class Item {
         size = item.size;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

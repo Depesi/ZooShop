@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import ua.bg.zooshop.entity.User;
 
 @Repository
-public interface IUserRepository  extends MongoRepository<User,Integer> {
+public interface IUserRepository extends MongoRepository<User, String> {
 }

@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public class RoleService {
-    Role role = new Role(0, "admin");
+    Role role = new Role("ROLE_ADMIN");
     @Autowired
     IRoleRepository repository;
 
@@ -30,7 +30,7 @@ public class RoleService {
         return roleCreate;
     }
 
-    public void delete(int id){
+    public void delete(String id){
         repository.deleteById(id);
     }
 
@@ -38,7 +38,7 @@ public class RoleService {
         return repository.findAll();
     }
 
-    public Role getById(int id) {
+    public Role getById(String id) {
         return repository.findById(id).orElseThrow(() -> new RuntimeException("Not Found ID"));
     }
 }

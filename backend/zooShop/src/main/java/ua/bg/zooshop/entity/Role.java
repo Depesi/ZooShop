@@ -12,12 +12,12 @@ import java.util.Objects;
 @Data
 public class Role {
     @Id
-    private int id;
+    private String id;
     @Field
     @Schema(description = "There can be only 3 types of roles")
     private String name;
 
-    public Role(int id, String name) {
+    public Role(String id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -33,11 +33,11 @@ public class Role {
         name = role.name;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

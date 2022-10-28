@@ -23,7 +23,7 @@ public class BasketController {
 
     @ApiOperation(value = "Get one Item by id")
     @GetMapping("/{id}")
-    public Basket getById(@PathVariable(value = "id") int id) {
+    public Basket getById(@PathVariable(value = "id") String id) {
         return service.getById(id);
     }
 
@@ -41,7 +41,7 @@ public class BasketController {
 
     @ApiOperation(value = "Method that removes Baskets by id")
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable(value = "id")int id){
+    public void delete(@PathVariable(value = "id") String id) {
         service.delete(id);
     }
 }

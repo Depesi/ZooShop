@@ -28,11 +28,11 @@ public class ItemController {
 
     @ApiOperation(value = "Get one Item by id")
     @GetMapping("/{id}")
-    public Item getById(@PathVariable(value = "id") Integer id) {
+    public Item getById(@PathVariable(value = "id") String id) {
         return service.getById(id);
     }
     @GetMapping(value = "/findByName/{name}")
-    public Item getfindByName(@PathVariable(value = "name") String name){ return service.getFindByName(name); }
+    public Item getFindByName(@PathVariable(value = "name") String name){ return service.getFindByName(name); }
 
     @ApiOperation(value = "Method that creates Items")
     @PostMapping("/")
@@ -48,7 +48,7 @@ public class ItemController {
 
     @ApiOperation(value = "Method that removes Items by id")
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable(value = "id")int id){
+    public void delete(@PathVariable(value = "id")String id){
         service.delete(id);
     }
 }
