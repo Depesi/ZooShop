@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public class CategoryService {
-    Category category = new Category(0,"test");
+    Category category = new Category();
     @Autowired
     ICategoryRepository repository;
 
@@ -26,12 +26,12 @@ public class CategoryService {
     }
 
     public Category update(Category categoryCreate) {
-        Category updateCategory = getById(categoryCreate.getId());
-        repository.save(updateCategory);
-        return updateCategory;
+        getById(categoryCreate.getId());
+        repository.save(categoryCreate);
+        return categoryCreate;
     }
 
-    public void delete(int id){
+    public void delete(String id){
         repository.deleteById(id);
     }
 
@@ -39,7 +39,7 @@ public class CategoryService {
         return repository.findAll();
     }
 
-    public Category getById(int id) {
+    public Category getById(String id) {
         return repository.findById(id).orElseThrow(() -> new RuntimeException("Not Found ID"));
     }
 }

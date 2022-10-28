@@ -1,6 +1,5 @@
 package ua.bg.zooshop.controller;
 
-
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +23,7 @@ public class CategoryController {
 
     @ApiOperation(value = "Get one Item by id")
     @GetMapping("/{id}")
-    public Category getById(@PathVariable(value = "id") int id) {
+    public Category getById(@PathVariable(value = "id") String id) {
         return service.getById(id);
     }
 
@@ -42,7 +41,7 @@ public class CategoryController {
 
     @ApiOperation(value = "Method that removes Categories by id")
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable(value = "id")int id){
+    public void delete(@PathVariable(value = "id")String id){
         service.delete(id);
     }
 }

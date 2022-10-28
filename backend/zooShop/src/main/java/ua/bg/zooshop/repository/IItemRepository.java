@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import ua.bg.zooshop.entity.Item;
 
 @Repository
-public interface IItemRepository extends MongoRepository<Item,Integer> {
+public interface IItemRepository extends MongoRepository<Item, String> {
     @Query("{ 'name' : ?0 }")
     Item findItemByName(String name);
 }

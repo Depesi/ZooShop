@@ -4,11 +4,16 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+enum Role {
+    USER,
+    ADMIN,
+    CUSTOMER,
+    OPERATOR
+}
 @Document
 public class User {
-
     @Id
-    private int id;
+    private String id;
     private String username;
     private String password;
     private int phone;
@@ -20,7 +25,7 @@ public class User {
     private int discount;
     private Role role;
 
-    public User(int id, String username, String password, int phone, String firstName,
+    public User(String id, String username, String password, int phone, String firstName,
                 String lastName, String surrName, String email, int discount, Role role) {
         this.id = id;
         this.username = username;
@@ -50,11 +55,24 @@ public class User {
     public User() {
     }
 
-    public int getId() {
+    public User(User newUser) {
+        id = newUser.id;
+        username = newUser.username;
+        password = newUser.password;
+        phone = newUser.phone;
+        firstName = newUser.firstName;
+        lastName = newUser.lastName;
+        surrName = newUser.surrName;
+        email = newUser.email;
+        discount = newUser.discount;
+        role = newUser.role;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

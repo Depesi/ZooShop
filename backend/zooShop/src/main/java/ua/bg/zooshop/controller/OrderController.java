@@ -22,7 +22,7 @@ public class OrderController {
 
     @ApiOperation(value = "Get one Item by id")
     @GetMapping("/{id}")
-    public Order getById(@PathVariable(value = "id") int id) {
+    public Order getById(@PathVariable(value = "id") String id) {
         return service.getById(id);
     }
 
@@ -40,7 +40,7 @@ public class OrderController {
 
     @ApiOperation(value = "Method that removes Orders by id")
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable(value = "id")int id){
+    public void delete(@PathVariable(value = "id")String id){
         service.delete(id);
     }
 }

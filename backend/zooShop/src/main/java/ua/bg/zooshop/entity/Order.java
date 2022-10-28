@@ -2,21 +2,27 @@ package ua.bg.zooshop.entity;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class Order {
     @Id
-    private int id;
+    private String id;
     @Schema(description = "Link to basket")
+    @DBRef
     private Basket basket;
-
     private boolean status;
 
     public Order() {
     }
+    public Order(Order order) {
+        id = order.id;
+        basket = order.basket;
+        status = order.status;
+    }
 
-    public Order(int id, Basket basket, boolean status) {
+    public Order(String id, Basket basket, boolean status) {
         this.id = id;
         this.basket = basket;
         this.status = status;
@@ -27,11 +33,11 @@ public class Order {
         this.status = status;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
