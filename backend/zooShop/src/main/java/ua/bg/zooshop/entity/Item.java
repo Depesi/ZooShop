@@ -2,8 +2,8 @@ package ua.bg.zooshop.entity;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
@@ -19,7 +19,8 @@ public class Item {
     @Schema(description = "The field is used to relate the 'Item' to the animal")
     private String nameForAnimal;
     @Schema(description = "The field indicates the id of the Category")
-    private List<Category> idCategory;
+    @DBRef
+    private List<Category> CategoryList;
     private String description;
     @Schema(description = "Should contain a picture")
     private int image;
@@ -33,7 +34,7 @@ public class Item {
         this.price = price;
         this.quantity = quantity;
         this.nameForAnimal = nameForAnimal;
-        this.idCategory = idCategory;
+        this.CategoryList = idCategory;
         this.description = description;
         this.image = image;
         this.size = size;
@@ -45,7 +46,7 @@ public class Item {
         this.price = price;
         this.quantity = quantity;
         this.nameForAnimal = nameForAnimal;
-        this.idCategory = idCategory;
+        this.CategoryList = idCategory;
         this.description = description;
         this.image = image;
         this.size = size;
@@ -59,7 +60,7 @@ public class Item {
         price = item.price;
         quantity = item.quantity;
         nameForAnimal = item.nameForAnimal;
-        idCategory = item.idCategory;
+        CategoryList = item.CategoryList;
         description = item.description;
         image = item.image;
         size = item.size;
@@ -105,12 +106,12 @@ public class Item {
         this.nameForAnimal = nameForAnimal;
     }
 
-    public List<Category> getIdCategory() {
-        return idCategory;
+    public List<Category> getCategoryList() {
+        return CategoryList;
     }
 
-    public void setIdCategory(List<Category> idCategory) {
-        this.idCategory = idCategory;
+    public void setCategoryList(List<Category> categoryList) {
+        this.CategoryList = categoryList;
     }
 
     public String getDescription() {
