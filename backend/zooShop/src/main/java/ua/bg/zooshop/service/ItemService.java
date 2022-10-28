@@ -2,14 +2,9 @@ package ua.bg.zooshop.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ua.bg.zooshop.entity.Category;
 import ua.bg.zooshop.entity.Item;
-import ua.bg.zooshop.entity.Role;
 import ua.bg.zooshop.repository.IItemRepository;
 
-import javax.annotation.PostConstruct;
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.List;
 
 @Service
