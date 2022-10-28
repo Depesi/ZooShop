@@ -1,8 +1,10 @@
 package ua.bg.zooshop.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import ua.bg.zooshop.config.EncoderPassword;
 import ua.bg.zooshop.entity.User;
 import ua.bg.zooshop.repository.IUserRepository;
 
@@ -14,11 +16,11 @@ public class UserService {
     @Autowired
     IUserRepository repository;
 
-    @Autowired
-    EncoderPassword encoderPassword;
+
+    BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
     public User create(User userCreate) {
-        userCreate.setPassword(encoderPassword.EncodingPassword(userCreate.getPassword()));
+        userCreate.setPassword(bCryptPasswordEncoder.encode(userCreate.getPassword()));
         repository.save(userCreate);
         return userCreate;
     }
@@ -26,16 +28,16 @@ public class UserService {
     public User update(User userCreate) {
         getById(userCreate.getId());
 
-        boolean isOldPassword = encoderPassword.EqualsPassword(userCreate.getPassword(),userCreate.getPassword());
-        if(isOldPassword){
-            userCreate.setPassword(encoderPassword.EncodingPassword(userCreate.getPassword()));
+        boolean isOldPassword = bCryptPasswordEncoder.matches(userCreate.getPassword(), userCreate.getPassword());
+        if (isOldPassword) {
+            userCreate.setPassword(bCryptPasswordEncoder.encode(userCreate.getPassword()));
         }
 
         repository.save(userCreate);
         return userCreate;
     }
 
-    public void delete(String id){
+    public void delete(String id) {
         repository.deleteById(id);
     }
 
@@ -46,4 +48,5 @@ public class UserService {
     public User getById(String id) {
         return repository.findById(id).orElseThrow(() -> new RuntimeException("Not Found ID"));
     }
+
 }
