@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import ua.bg.zooshop.entity.Order;
+import ua.bg.zooshop.service.OperatorService;
 import ua.bg.zooshop.service.OrderService;
 
 import java.util.List;
@@ -49,4 +50,6 @@ public class OrderController {
     public void delete(@PathVariable(value = "id")String id){
         service.delete(id);
     }
+
+
 }

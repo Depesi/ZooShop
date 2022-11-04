@@ -10,12 +10,12 @@ import java.util.List;
 
 @Service
 public class OrderService {
-    Order order = new Order();
+    Order order = new Order("1",null,true);
 
     @Autowired
     IOrderRepository repository;
 
-    //    @PostConstruct
+        @PostConstruct
     public void init() {
         repository.save(order);
     }
