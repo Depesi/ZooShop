@@ -18,7 +18,6 @@ public class CategoryController {
 
     @ApiOperation(value = "Get List with all Categories")
     @GetMapping("/")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public List<Category> getAll() {
         return service.getAll();
     }

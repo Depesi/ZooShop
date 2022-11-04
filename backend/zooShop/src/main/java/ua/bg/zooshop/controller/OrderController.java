@@ -32,7 +32,7 @@ public class OrderController {
 
     @ApiOperation(value = "Method that creates Orders")
     @PostMapping("/")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('OPERATOR')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('OPERATOR') or hasRole('USER')")
     public Order create(@RequestBody Order order) {
         return service.create(order);
     }
