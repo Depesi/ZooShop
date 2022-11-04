@@ -34,24 +34,28 @@ public class UserController {
 
     @ApiOperation(value = "Get one Item by id")
     @GetMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public User getById(@PathVariable(value = "id") String id) {
         return service.getById(id);
     }
 
     @ApiOperation(value = "Method that creates Users")
     @PostMapping("/")
+    @PreAuthorize("hasRole('ADMIN')")
     public User create(@RequestBody User user) {
         return service.create(user);
     }
 
     @ApiOperation(value = "Method that updates Users")
     @PutMapping("/")
+    @PreAuthorize("hasRole('ADMIN')")
     public User update(@RequestBody User user) {
         return service.update(user);
     }
 
     @ApiOperation(value = "Method that removes Users by id")
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public void delete(@PathVariable(value = "id")String id){
         service.delete(id);
     }

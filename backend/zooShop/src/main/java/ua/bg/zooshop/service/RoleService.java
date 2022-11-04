@@ -14,7 +14,8 @@ import java.util.List;
 public class RoleService {
     List<Role> roleList = new ArrayList<>(Arrays.asList(
             new Role(0,Role.ERole.ROLE_ADMIN),
-            new Role(1,Role.ERole.ROLE_USER)
+            new Role(1,Role.ERole.ROLE_USER),
+            new Role(2, Role.ERole.ROLE_OPERATOR)
     ));
     @Autowired
     IRoleRepository repository;
