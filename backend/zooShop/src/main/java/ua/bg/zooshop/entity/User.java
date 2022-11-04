@@ -1,15 +1,17 @@
 package ua.bg.zooshop.entity;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-enum Role {
-    USER,
-    ADMIN,
-    CUSTOMER,
-    OPERATOR
-}
+import java.util.Set;
+
+@AllArgsConstructor
+
+@Builder
 @Document
 public class User {
     @Id
@@ -23,10 +25,10 @@ public class User {
     private String email;
     @Schema(description = "Discount for this user")
     private int discount;
-    private Role role;
+    private Set<Role> roles;
 
     public User(String id, String username, String password, int phone, String firstName,
-                String lastName, String surrName, String email, int discount, Role role) {
+                String lastName, String surrName, String email, int discount) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -36,11 +38,10 @@ public class User {
         this.surrName = surrName;
         this.email = email;
         this.discount = discount;
-        this.role = role;
     }
 
     public User(String username, String password, int phone, String firstName, String lastName,
-                String surrName, String email, int discount, Role role) {
+                String surrName, String email, int discount) {
         this.username = username;
         this.password = password;
         this.phone = phone;
@@ -49,7 +50,6 @@ public class User {
         this.surrName = surrName;
         this.email = email;
         this.discount = discount;
-        this.role = role;
     }
 
     public User() {
@@ -65,7 +65,7 @@ public class User {
         surrName = newUser.surrName;
         email = newUser.email;
         discount = newUser.discount;
-        role = newUser.role;
+        roles = newUser.roles;
     }
 
     public String getId() {
@@ -140,11 +140,11 @@ public class User {
         this.discount = discount;
     }
 
-    public Role getRole() {
-        return role;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }

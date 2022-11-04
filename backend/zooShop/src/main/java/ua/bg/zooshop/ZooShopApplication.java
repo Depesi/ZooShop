@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Import;
 import ua.bg.zooshop.config.SwaggerConfig;
 
 @SpringBootApplication
+
 @Import({SwaggerConfig.class})
 public class ZooShopApplication {
 
