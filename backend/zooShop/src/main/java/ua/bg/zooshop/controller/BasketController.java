@@ -18,7 +18,7 @@ public class BasketController {
 
     @ApiOperation(value = "Get List with all Baskets")
     @GetMapping("/")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN')")
     public List<Basket> getAll() {
         return service.getAll();
     }

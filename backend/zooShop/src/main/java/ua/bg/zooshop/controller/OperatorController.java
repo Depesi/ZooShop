@@ -1,6 +1,7 @@
 package ua.bg.zooshop.controller;
 
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ public class OperatorController {
     @Autowired
     OperatorService operatorService;
 
+    @ApiOperation(value = "Show all order by status")
     @GetMapping("/status/{status}")
     @PreAuthorize("hasRole('ADMIN') or hasRole('OPERATOR')")
     public List<Order> status(@PathVariable(value = "status")boolean status){

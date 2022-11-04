@@ -23,19 +23,17 @@ public class ItemController {
             @ApiResponse(code = 500, message = "Internal server error")
     })
     @GetMapping("/")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public List<Item> getAll() {
         return service.getAll();
     }
 
     @ApiOperation(value = "Get one Item by id")
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public Item getById(@PathVariable(value = "id") String id) {
         return service.getById(id);
     }
+
     @GetMapping(value = "/findByName/{name}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public Item getFindByName(@PathVariable(value = "name") String name){ return service.getFindByName(name); }
 
     @ApiOperation(value = "Method that creates Items")
@@ -47,14 +45,14 @@ public class ItemController {
 
     @ApiOperation(value = "Method that updates Items")
     @PutMapping("/")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('OPERATOR')")
     public Item update(@RequestBody Item item) {
         return service.update(item);
     }
 
     @ApiOperation(value = "Method that removes Items by id")
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('OPERATOR')")
     public void delete(@PathVariable(value = "id")String id){
         service.delete(id);
     }

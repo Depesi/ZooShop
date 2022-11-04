@@ -18,14 +18,14 @@ public class OrderController {
 
     @ApiOperation(value = "Get List with all Orders")
     @GetMapping("/")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('USER') or hasRole('OPERATOR')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('OPERATOR')")
     public List<Order> getAll() {
         return service.getAll();
     }
 
     @ApiOperation(value = "Get one Item by id")
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('OPERATOR')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('OPERATOR') or hasRole('USER')")
     public Order getById(@PathVariable(value = "id") String id) {
         return service.getById(id);
     }
