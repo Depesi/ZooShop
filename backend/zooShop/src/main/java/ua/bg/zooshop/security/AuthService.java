@@ -58,12 +58,11 @@ public class AuthService {
         if (userRepository.existsByUsername(request.getUsername())) {
             throw new IllegalArgumentException("Username " + request.getUsername() + " already exist");
         }
-        Set<Role> roles = new HashSet<>();
-        roles.add(mapStringToRole("ROLE_USER"));
+
         var user = User.builder()
                 .username(request.getUsername())
                 .password(encoder.encode(request.getPassword()))
-                .roles(roles).build();
+                .roles(new HashSet<>(Arrays.asList(mapStringToRole("ROLE_USER")))).build();
 
         userRepository.save(user);
 
