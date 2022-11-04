@@ -14,7 +14,7 @@ import java.util.List;
 public class SignUpRequest {
     private String username;
     private String password;
-    private List<String> roles;
+//    private List<String> roles;
 
     public String getUsername() {
         return username;
@@ -32,11 +32,11 @@ public class SignUpRequest {
         this.password = password;
     }
 
-    public List<String> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<String> roles) {
-        this.roles = roles;
-    }
+//    public List<String> getRoles() {
+//        return roles;
+//    }
+//
+//    public void setRoles(List<String> roles) {
+//        this.roles = roles;
+//    }
 }

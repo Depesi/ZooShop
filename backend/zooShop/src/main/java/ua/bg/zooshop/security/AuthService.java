@@ -18,6 +18,9 @@ import ua.bg.zooshop.entity.User;
 import ua.bg.zooshop.repository.IRoleRepository;
 import ua.bg.zooshop.repository.IUserRepository;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -55,24 +58,24 @@ public class AuthService {
         if (userRepository.existsByUsername(request.getUsername())) {
             throw new IllegalArgumentException("Username " + request.getUsername() + " already exist");
         }
-
+        Set<Role> roles = new HashSet<>();
+        roles.add(mapStringToRole("ROLE_USER"));
         var user = User.builder()
                 .username(request.getUsername())
                 .password(encoder.encode(request.getPassword()))
-                .roles(mapRoles(request)).build();
+                .roles(roles).build();
 
         userRepository.save(user);
 
         return "User was successfully created";
     }
 
-
-    private Set<Role> mapRoles(SignUpRequest request) {
-        return request.getRoles()
-                .stream()
-                .map(this::mapStringToRole)
-                .collect(Collectors.toSet());
-    }
+//    private Set<Role> mapRoles(SignUpRequest request) {
+//        return request.getRoles()
+//                .stream()
+//                .map(this::mapStringToRole)
+//                .collect(Collectors.toSet());
+//    }
 
     private Role mapStringToRole(String roleString) {
         return roleRepository.findByName(Role.ERole.valueOf(roleString))
