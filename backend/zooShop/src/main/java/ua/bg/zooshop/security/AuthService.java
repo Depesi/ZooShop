@@ -62,19 +62,18 @@ public class AuthService {
         var user = User.builder()
                 .username(request.getUsername())
                 .password(encoder.encode(request.getPassword()))
-                .roles(new HashSet<>(Arrays.asList(mapStringToRole("ROLE_USER")))).build();
+                .roles(new HashSet<>(Arrays.asList(mapStringToRole("ROLE_USER"))))
+                .phone(request.getPhone())
+                .firstName(request.getFirstName())
+                .surrName(request.getSurrName())
+                .lastName(request.getLastName())
+                .email(request.getEmail())
+                .build();
 
         userRepository.save(user);
 
         return "User was successfully created";
     }
-
-//    private Set<Role> mapRoles(SignUpRequest request) {
-//        return request.getRoles()
-//                .stream()
-//                .map(this::mapStringToRole)
-//                .collect(Collectors.toSet());
-//    }
 
     private Role mapStringToRole(String roleString) {
         return roleRepository.findByName(Role.ERole.valueOf(roleString))
