@@ -21,8 +21,11 @@ public class ZooShopApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/api/v1/**").allowedOrigins("http://localhost:4200")
-						.allowedOrigins("http://localhost:8080");
+				registry.addMapping("/api/v1/**").allowedOrigins("http://localhost:4200/")
+						.allowedMethods("GET","POST,","PUT","DELETE")
+						.maxAge(3600)
+						.allowedHeaders("Requestor-Type")
+						.exposedHeaders("X-Get-Header");
 			}
 		};
 	}
