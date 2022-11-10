@@ -18,35 +18,35 @@ public class OrderController {
 
     @ApiOperation(value = "Get List with all Orders")
     @GetMapping("/")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('OPERATOR')")
+    @PreAuthorize("hasRole('ADMIN')")
     public List<Order> getAll() {
         return service.getAll();
     }
 
     @ApiOperation(value = "Get one Item by id")
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('OPERATOR') or hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public Order getById(@PathVariable(value = "id") String id) {
         return service.getById(id);
     }
 
     @ApiOperation(value = "Method that creates Orders")
     @PostMapping("/")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('OPERATOR') or hasRole('USER')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public Order create(@RequestBody Order order) {
         return service.create(order);
     }
 
     @ApiOperation(value = "Method that updates Orders")
     @PutMapping("/")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('OPERATOR')")
+    @PreAuthorize("hasRole('ADMIN')")
     public Order update(@RequestBody Order order) {
         return service.update(order);
     }
 
     @ApiOperation(value = "Method that removes Orders by id")
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('OPERATOR')")
+    @PreAuthorize("hasRole('ADMIN')")
     public void delete(@PathVariable(value = "id")String id){
         service.delete(id);
     }
