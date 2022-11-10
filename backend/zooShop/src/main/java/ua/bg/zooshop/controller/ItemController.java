@@ -45,14 +45,14 @@ public class ItemController {
 
     @ApiOperation(value = "Method that updates Items")
     @PutMapping("/")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('OPERATOR')")
+    @PreAuthorize("hasRole('ADMIN')")
     public Item update(@RequestBody Item item) {
         return service.update(item);
     }
 
     @ApiOperation(value = "Method that removes Items by id")
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('OPERATOR')")
+    @PreAuthorize("hasRole('ADMIN')")
     public void delete(@PathVariable(value = "id")String id){
         service.delete(id);
     }

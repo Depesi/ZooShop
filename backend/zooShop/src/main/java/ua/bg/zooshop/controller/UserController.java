@@ -27,14 +27,14 @@ public class UserController {
 
     @ApiOperation(value = "Get List with all Users")
     @GetMapping("/")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('OPERATOR')")
+    @PreAuthorize("hasRole('ADMIN')")
     public List<User> getAll() {
         return service.getAll();
     }
 
-    @ApiOperation(value = "Get one Item by id")
+    @ApiOperation(value = "Get one User by id")
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN') or hasRole('OPERATOR')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     public User getById(@PathVariable(value = "id") String id) {
         return service.getById(id);
     }
