@@ -13,24 +13,27 @@ public class Order {
     @DBRef
     private Basket basket;
     private boolean status;
+    @Schema(description = "Point to delivery")
+    private String delivery;
+    @Schema(description = "Write another infomation")
+    private String description;
 
-    public Order() {
-    }
-    public Order(Order order) {
-        id = order.id;
-        basket = order.basket;
-        status = order.status;
-    }
-
-    public Order(String id, Basket basket, boolean status) {
+    public Order(String id, Basket basket, boolean status, String delivery, String description) {
         this.id = id;
         this.basket = basket;
         this.status = status;
+        this.delivery = delivery;
+        this.description = description;
     }
 
-    public Order(Basket basket, boolean status) {
+    public Order(Basket basket, boolean status, String delivery, String description) {
         this.basket = basket;
         this.status = status;
+        this.delivery = delivery;
+        this.description = description;
+    }
+
+    public Order() {
     }
 
     public String getId() {
@@ -55,5 +58,21 @@ public class Order {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public String getDelivery() {
+        return delivery;
+    }
+
+    public void setDelivery(String delivery) {
+        this.delivery = delivery;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
