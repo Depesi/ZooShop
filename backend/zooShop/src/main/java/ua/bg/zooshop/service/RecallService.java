@@ -33,6 +33,6 @@ public class RecallService {
         Recall update = getById(newRecall.getId());
         update.setId(newRecall.getId());
         update.setNumber(newRecall.getNumber());
-        return update;
+        return repository.save(update);
     }
 }
