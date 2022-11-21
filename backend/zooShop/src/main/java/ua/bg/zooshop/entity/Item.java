@@ -26,12 +26,13 @@ public class Item {
     private int image;
     @Schema(description = "Number of such items available")
     private int size;
-
     @Schema(description = "producing country")
     private String country;
+    @Schema(description = "producing weight")
+    private String weight;
 
     public Item(String id, String name, int price, int quantity, String nameForAnimal, List<Category> idCategory,
-                String description, int image, int size, String country) {
+                String description, int image, int size, String country, String weight) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -42,10 +43,11 @@ public class Item {
         this.image = image;
         this.size = size;
         this.country = country;
+        this.weight = weight;
     }
 
     public Item(String name, int price, int quantity, String nameForAnimal, List<Category> idCategory,
-                String description, int image, int size, String country) {
+                String description, int image, int size, String country, String weight) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
@@ -55,6 +57,7 @@ public class Item {
         this.image = image;
         this.size = size;
         this.country = country;
+        this.weight = weight;
     }
 
     public Item() {
@@ -71,6 +74,7 @@ public class Item {
         image = item.image;
         size = item.size;
         country = item.country;
+        weight = item.weight;
     }
 
     public String getId() {
@@ -151,5 +155,13 @@ public class Item {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
     }
 }
